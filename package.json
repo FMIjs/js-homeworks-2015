@@ -1,0 +1,25 @@
+{
+  "name": "js-homeworks-2015",
+  "version": "1.0.0",
+  "description": "Homeworks and test suites for Advanced JS course in FMI",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "~3.4.0"
+  },
+  "devDependencies": {
+    "chai": "~3.4.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FMIjs/js-homeworks-2015.git"
+  },
+  "author": "FMIjs",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/FMIjs/js-homeworks-2015/issues"
+  },
+  "homepage": "https://github.com/FMIjs/js-homeworks-2015"
+}
