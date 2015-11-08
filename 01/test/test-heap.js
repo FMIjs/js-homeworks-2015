@@ -1,7 +1,6 @@
+
 var chai = require('chai');
-
-var Heap = require('../heap').Heap;
-
+var Heap = require('../binary_heap');
 var should = chai.should();
 
 describe('BinaryHeap', function() {
