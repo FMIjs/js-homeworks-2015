@@ -1,13 +1,14 @@
 var chai = require('chai');
 
-var Heap = require('../heap').Heap;
+var BinaryHeap = require('../binary_heap');
 
 var should = chai.should();
 
 describe('BinaryHeap', function() {
-	var heap;
+	var heap, list;
 	beforeEach(function(done) {
-		heap = new Heap();
+		heap = new BinaryHeap();
+		list = [4, 9, 5, 8, 7, 10, 2];
 		done();
 	})
 
@@ -16,39 +17,40 @@ describe('BinaryHeap', function() {
 		done();
 	});
 
+	it('should be constructed from a list', function(done) {
+		heap = new BinaryHeap([4, 2, 7]);
+		heap.isEmpty().should.be.false;
+		done();
+	});
+
 	it('should support insertion', function(done) {
-		var first = heap.add(2);
-		var second = heap.add(3);
-		first.should.equal(0);
-		second.should.equal(0);
+		var first = heap.insert(2);
+		var second = heap.insert(3);
+		first.should.equal([2].toString());
+		second.should.equal([2, 3].toString());
 		done();
 	});
 
 	it('should report top element', function(done) {
-		heap.add(42);
-		heap.add(2);
-		heap.top().should.equal(42);
+		heap.insert(42);
+		heap.insert(22);
+		heap.getMinimum().should.equal(22);
 
-		heap.add(100);
-		heap.top().should.equal(100);
+		heap.insert(2);
+		heap.getMinimum().should.equal(2);
 		done();
 	});
 
-	it('should return extremum', function(done) {
-		heap.add(42);
-		heap.add(2);
-		heap.add(22);
-		heap.extract().should.equal(42);
-		heap.extract().should.equal(22);
-		done();
-	});
+	//    2
+	//  4   7
+	// 5 9 10 8
 
-	it('should support changing keys', function(done) {
-		var first = heap.add(42);
-		var second = heap.add(22);
-		second.should.equal(1);
-		var newIdx = heap.changeKey(second, 62);
-		newIdx.should.equal(0);
+	it('should return linked elements', function(done) {
+		heap = new BinaryHeap(list);
+		heap.parentElement(1).should.equal(2);
+		heap.leftElement(2).should.equal(10);
+		heap.rightElement(1).should.equal(9);
+		chai.expect(heap.rightElement(4)).to.be.undefined;
 		done();
 	});
 
