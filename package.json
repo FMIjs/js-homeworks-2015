@@ -3,15 +3,12 @@
   "version": "1.0.0",
   "description": "Homeworks and test suites for Advanced JS course in FMI",
   "main": "index.js",
-  "dependencies": {
-    "chai": "~3.4.0"
-  },
   "devDependencies": {
     "chai": "~3.4.0",
     "mocha": "~2.3.3"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha $(find . -type f -name '*.js' | egrep -v '^(./node_modules|./.git)')"
   },
   "repository": {
     "type": "git",
