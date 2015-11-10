@@ -42,14 +42,14 @@ describe('BinaryHeap', function() {
 	});
 
 	//    2
-	//  4   7
-	// 5 9 10 8
+	//  7   4
+	// 9 8 10 5
 
 	it('should return linked elements', function(done) {
 		heap = new BinaryHeap(list);
 		heap.parentElement(1).should.equal(2);
 		heap.leftElement(2).should.equal(10);
-		heap.rightElement(1).should.equal(9);
+		heap.rightElement(1).should.equal(8);
 		chai.expect(heap.rightElement(4)).to.be.undefined;
 		done();
 	});
