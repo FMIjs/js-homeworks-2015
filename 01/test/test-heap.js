@@ -48,6 +48,7 @@ describe('BinaryHeap', function() {
 	it('should return linked elements', function(done) {
 		heap = new BinaryHeap(list);
 		heap.parentElement(1).should.equal(2);
+		heap.parentElement(2).should.equal(2); // Fails if using the lectures heap
 		heap.leftElement(2).should.equal(10);
 		heap.rightElement(1).should.equal(8);
 		chai.expect(heap.rightElement(4)).to.be.undefined;
