@@ -50,7 +50,7 @@ module.exports = (function () {
         return this[this.leftIndex(searched)];
     }
 
-    BinaryHeap.prototype.rightElement = function (element) {
+    BinaryHeap.prototype.rightElement = function (searched) {
         return this[this.rightIndex(searched)];
     }
 
@@ -61,6 +61,7 @@ module.exports = (function () {
     BinaryHeap.prototype.insert = function (element) {
         this.push(element);
         this.bubbleDown();
+		return this.toString();
     }
 
     BinaryHeap.prototype.bubbleUp = function () {
